@@ -28,6 +28,9 @@ VUI-SDK是运行在Android平台，旨在为用户提供完整的语音交互功
 
 ##### [demo下载](http://)
 
+**接口文档**
+[地址](http://htmlpreview.github.com/?https://github.com/roobo/docs/blob/master/VoiceService-SDK/javadoc/index.html)
+
 
 <h3 id="2">2.使用说明</h3>
 
