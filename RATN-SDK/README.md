@@ -16,23 +16,24 @@
   
 <h3 id="1">1.概述 </h3>
 
-RATN-SDK是运行在Android平台，旨在为用户提供在线语音听写、唤醒及离线语音合成的能力。
-
-**麦克风**支持android 标准的,与roobo公司的环形麦克风阵列record。
+VUI-SDK是运行在Android平台，旨在为用户提供完整的语音交互功能。其中内置两个标准的交互方案，1.标准的机器人交互方案，可全部通过语音控制整个交互流程。可参考市场上售卖的机器人及各种音响产品等。2.类似故事机的按钮式交互方案，主要是通过按钮控制整个交互流程。
 
 **语言**目前支持语言请参见支持的语言。
 
-##### [sdk下载](http://)
+**可选的功能**离线唤醒、打断，离线短语识别，在线语句识别，在线语义，离线语音合成，在线语音合成。
+
+**demo获取**
+
+##### [demo下载](http://)
 
 
 <h3 id="2">2.使用说明</h3>
 
 <h4 id="2.1">准备</h4>
 
-1.账号申请，账号通常包括appID，publicKey，账号注意妥善保管。
-2.SDK及demo获取，目前SDK是以aar的形式提供，IDE需要用AndroidStudio。
-3.对应语种的资源，每个语言包含对应的离线识别、TTS合成的模型文件。
-4.配置编译环境，将SDK的aar文件放入业务Module的libs文件夹下，并且配置编译选项
+1.账号申请、SDK及demo获取，目前SDK是以aar的形式提供，IDE需要用AndroidStudio。
+2.对应语种唤醒词，离线短语的语法文件。
+3.配置编译环境，将SDK的aar文件放入业务Module的libs文件夹下，并且配置编译选项
 
 ```
     repositories {
@@ -44,67 +45,89 @@ RATN-SDK是运行在Android平台，旨在为用户提供在线语音听写、�
 
 ```
 
-<h5 id="2.2">2.2API初始化</h5>
+<h5 id="2.2">2.2方法及参数解析</h5>
+###### 核心接口类：VUIApi。
 
-本sdk支持三种初始化方式
+###### 核心方法：
 
-**initWakeupSingleRecognizeApi**
-
-该模式下的api,每次发布指令前，需要先语音输入唤醒词，当设备接收到唤醒词后，可以输入具体的命令如：**今天天气怎么样** 。命令识别成功后，会重新回到需要说唤醒的状态。该状态我们定义为**SLEEP**状态。
-
-**initSustainedWakeupAndCloudRecognizeApi**
-
-该模式下的api,首次发布命令前需要先语音输入唤醒词，当设备接收到唤醒词后，可以输入具体的命令，如：**今天天气怎么样**，也可以再次输入唤醒词，命令识别成功后，不会进入**SLEEP**状态，而是会一直处于识别状态，该状态我们定义为**ACTIVE**。
-
-**initManualVADRecognizeApi**
-该模式下的api不包含**VAD**,而其他初始化得到的api，都配备有智能VAD。该api由用户手动控制vad的开始与结束。比较试用于智能手表。有一个按钮，按下开始输入命令，抬起则结束输入，开始识别命令。
-
-
-<h5 id="2.3">2.3方法及参数解析</h5>
-
-###### 参数解析
-
-| 类型 | 参数 | 备注 |
-| ------------- |:-------------:| -----:|
-| Context | context | 程序的context |
-| String | language | api识别对应的语言 |
-| MicModel | micModel | 麦克类型：<br/>ANDROID_STANDARD　标准<br/> MIC_ARRAY_R16 环形麦克风阵列|
-| String | wakeupGrammarFile |唤醒词资源文件 |
-| List<String> | word | 唤醒词资源文件中包含的唤醒词列表 |
-| UserInfo | userInfo | 用户账号信息 |
-| InitListener | initListener | 初始化Callback |
-
-
-###### 核心方法解析：
+初始化SDK：
+**init(Context context, InitParam initParam, InitListener initListener)**
 
 开始识别：
-**startRecognizer()**
+**startRecognize()**
 
 结束识别：
-**stopRecognizer()**
+**stopRecognize()**
 
-识别结果监听：
-**setRecognizerListener(RecognizerResultListener listener)**
-```
-public interface RecognizerResultListener {
-    /**　唤醒 **/
-    void onWakeup(String json);
+语义结果监听：
+**setOnAIResponseListener(OnAIResponseListener listener)**
 
-    /** 语义识别结果**/
-    void onCloudResult(String json);
-}
-```
-识别过程中的状态变化：
-**setAsrEventListener(AsrEventListener asrEventListener)**
+识别结果及状态变化监听：
+**setASRListener(AsrEventListener asrEventListener)**
 
+语音合成、播放：
+**speak(String text)**
+
+停止语音合成、播放：
+**stopSpeak()**
+
+语音播放过程监听：
+**setTTSListener(RTTSListener listener)**
 
 <h3 id="3">错误对应码</h3>
 
 | 错误码 | 备注 |
 | ------------- |:-------------:|
-| 10001 | 初始化language错误 |
-| 10002 | 重复初始化 |
-
+400 | BadRequest
+401 | Unauthorized
+500 | Internal
+501 | NotSupported
+503 | TooManyRequests
+601 | ServiceUnAvailable
+602 | ServiceUnknownFormat
+603 | ServiceMismatch
+604 | GetAsrServiceError
+605 | SpeechRecognizeError
+606 | SpeechRecognizeEmpty
+607 | GetAiServiceError
+608 | AiInternalError
+609 | AiNotSupported
+610 | GetTtsServiceError
+611 | TtsServiceInternalError
+10001 | 初始化language错误 
+10002 | 重复初始化
+10101 | 发送语音数据时 无法解析IP地址
+10102 | 发送语音数据时 连接失败
+10103 | 发送语音数据时 系统创建socket文件描述符失败
+10104 | 发送语音数据时 执行send操作失败，通常是由于连接异常断开
+10105 | 发送语音数据时 执行recv操作失败，通常是由于连接异常断开
+10201 | 发送语音数据时 有错误的调用API的行为，如在一开始联网失败的情况下，还以ROOBOAUDIO_SAMPLE_LAST调用了RooboAudioWrite，目前这样的错误可以忽略。
+21101 | 进行联网token校验时 无法解析IP地址
+21102 | 进行联网token校验时 连接失败
+21103 | 进行联网token校验时 系统创建socket文件描述符失败
+21104 | 进行联网token校验时 执行send操作失败，通常是由于连接异常断开
+21105 | 进行联网token校验时 执行recv操作失败，通常是由于连接异常断开
+21201 | 进行联网token校验时 URL解析失败，URL在目前的封装下都是写在so内部，此错误不应该出现
+21301 | 进行联网token校验时 服务端返回的http | body大小超出了8K的限制
+21401 | 进行联网token校验时 在构造请求时，由于内存不足申请内存失败
+21402 | 进行联网token校验时 在构造请求时创建请求线程失败，通常由于系统可用资源不足引起
+22101 | 执行TTS文本转播放URL时 无法解析IP地址
+22102 | 执行TTS文本转播放URL时 连接失败
+22103 | 执行TTS文本转播放URL时 系统创建socket文件描述符失败
+22104 | 执行TTS文本转播放URL时 执行send操作失败，通常是由于连接异常断开
+22105 | 执行TTS文本转播放URL时 执行recv操作失败，通常是由于连接异常断开
+22201 | 执行TTS文本转播放URL时 URL解析失败，URL在目前的封装下都是写在so内部，此错误不应该出现
+22301 | 执行TTS文本转播放URL时 服务端返回的http | body大小超出了8K的限制
+22401 | 执行TTS文本转播放URL时 在构造请求时，由于内存不足申请内存失败
+22402 | 执行TTS文本转播放URL时 在构造请求时创建请求线程失败，通常由于系统可用资源不足引起
+23101 | 在上传wifi列表获取位置时 无法解析IP地址
+23102 | 在上传wifi列表获取位置时 连接失败
+23103 | 在上传wifi列表获取位置时 系统创建socket文件描述符失败
+23104 | 在上传wifi列表获取位置时 执行send操作失败，通常是由于连接异常断开
+23105 | 在上传wifi列表获取位置时 执行recv操作失败，通常是由于连接异常断开
+23201 | 在上传wifi列表获取位置时 URL解析失败，URL在目前的封装下都是写在so内部，此错误不应该出现
+23301 | 在上传wifi列表获取位置时 服务端返回的http | body大小超出了8K的限制
+23401 | 在上传wifi列表获取位置时 在构造请求时，由于内存不足申请内存失败
 
 <h3 id="4">支持的语言列表</h3>
 
