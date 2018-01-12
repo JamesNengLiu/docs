@@ -341,6 +341,7 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 <h3 id="5">5.离线识别支持的语言列表</h3>
 
+| 语言| 语言对应的code |
 | ------------- |:-------------:|
 |	US English	|	eng-USA	|
 |	Spanish(LatAM)	|	spa-XLA	|
@@ -361,6 +362,7 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 <h3 id="6">6.在线发音人列表</h3>
 
+| 语言| 语言对应的code |
 | ------------- |:-------------:|
 |	Arabic (Egypt)	|	ara-EGY	|
 |	Arabic (Saudi Arabia)	|	ara-SAU	|
@@ -409,7 +411,7 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 <h3 id="7">7.离线发音人列表</h3>
 
-|语言| 语言对应的code| 发音人 |
+| 语言| 语言对应的code| 发音人 |
 | ------------- |:-------------:|
 |	Language	|	6 char *	|	Voice	|
 |	Arabic	|	ara-XWW	|	Laila	|
