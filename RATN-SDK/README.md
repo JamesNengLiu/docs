@@ -411,54 +411,55 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 |语言| 语言对应的code| 发音人 |
 | ------------- |:-------------:|
-Language	|	6 char *	|	Voice	|
-Arabic	|	ara-XWW	|	Laila	|
-Bahasa (Indonesia)	|	ind-IDN	|	Damayanti	|
-Basque	|	baq-ESP	|	Miren	|
-Cantonese	|	yue-CHN	|	Sin-Ji	|
-Catalan	|	cat-ESP	|	Jordi	|
-Czech	|	ces-CZE	|	Iveta	|
-Danish	|	dan-DNK	|	Magnus	|
-Dutch	|	nld-NLD	|	Claire	|
-Dutch (Belgium)	|	nld-BEL	|	Ellen	|
-English (Australia)	|	eng-AUS	|	Karen	|
-English (GB)	|	eng-GBR	|	Daniel	|
-English (India)	|	eng-IND	|	Veena	|
-English (Ireland)	|	eng-IRL	|	Moira	|
-English (Scotland)	|	eng-SCT	|	Fiona	|
-English (South Africa)	|	eng-ZAF	|	Tessa	|
-English (US)	|	eng-USA	|	Allison	|
-Finnish	|	fin-FIN	|	Satu	|
-French	|	fra-FRA	|	Audrey-ML	|
-French (Canada)	|	fra-CAN	|	Amelie	|
-Galician	|	glg-ESP	|	Carmela	|
-German	|	deu-DEU	|	Markus	|
-Greek	|	ell-GRC	|	Melina	|
-Hebrew	|	heb-ISR	|	Carmit	|
-Hindi	|	hin-IND	|	Lekha	|
-Hungarian	|	hun-HUN	|	Mariska	|
-Italian	|	ita-ITA	|	Alice-ML	|
-Japanese	|	jpn-JPN	|	Kyoko	|
-Japanese	|	jpn-JPN	|	Otoya	|
-Korean	|	kor-KOR	|	Sora	|
-Mandarin (China)	|	cmn-CHN	|	Li-Li	|
-Mandarin (Taiwan)	|	cmn-TWN	|	Mei-Jia	|
-Norwegian	|	nor-NOR	|	Nora	|
-Polish	|	pol-POL	|	Ewa	|
-Portuguese (Brazil)	|	por-BRA	|	Luciana	|
-Romanian	|	ron-ROU	|	Ioana	|
-Russian	|	rus-RUS	|	Katya	|
-Slovak	|	slk-SVK	|	Laura	|
-Spanish (Castilian)	|	spa-ESP	|	Jorge	|
-Spanish (Columbia)	|	spa-COL	|	Soledad	|
-Spanish (Columbia)	|	spa-COL	|	Carlos	|
-Spanish (Mexico)	|	spa-MEX	|	Angelica	|
-Spanish (Mexico)	|	spa-MEX	|	Paulina	|
-Spanish (Mexico)	|	spa-MEX	|	Juan	|
-Swedish	|	swe-SWE	|	Alva	|
-Thai	|	tha-THA	|	Kanya	|
-Turkish	|	tur-TUR	|	Cem	|
-Valencian	|	spa-ESP	|	Empar	|
+|	Language	|	6 char *	|	Voice	|
+|	Arabic	|	ara-XWW	|	Laila	|
+|	Bahasa (Indonesia)	|	ind-IDN	|	Damayanti	|
+|	Basque	|	baq-ESP	|	Miren	|
+|	Cantonese	|	yue-CHN	|	Sin-Ji	|
+|	Catalan	|	cat-ESP	|	Jordi	|
+|	Czech	|	ces-CZE	|	Iveta	|
+|	Danish	|	dan-DNK	|	Magnus	|
+|	Dutch	|	nld-NLD	|	Claire	|
+|	Dutch (Belgium)	|	nld-BEL	|	Ellen	|
+|	English (Australia)	|	eng-AUS	|	Karen	|
+|	English (GB)	|	eng-GBR	|	Daniel	|
+|	English (India)	|	eng-IND	|	Veena	|
+|	English (Ireland)	|	eng-IRL	|	Moira	|
+|	English (Scotland)	|	eng-SCT	|	Fiona	|
+|	English (South Africa)	|	eng-ZAF	|	Tessa	|
+|	English (US)	|	eng-USA	|	Allison	|
+|	Finnish	|	fin-FIN	|	Satu	|
+|	French	|	fra-FRA	|	Audrey-ML	|
+|	French (Canada)	|	fra-CAN	|	Amelie	|
+|	Galician	|	glg-ESP	|	Carmela	|
+|	German	|	deu-DEU	|	Markus	|
+|	Greek	|	ell-GRC	|	Melina	|
+|	Hebrew	|	heb-ISR	|	Carmit	|
+|	Hindi	|	hin-IND	|	Lekha	|
+|	Hungarian	|	hun-HUN	|	Mariska	|
+|	Italian	|	ita-ITA	|	Alice-ML	|
+|	Japanese	|	jpn-JPN	|	Kyoko	|
+|	Japanese	|	jpn-JPN	|	Otoya	|
+|	Korean	|	kor-KOR	|	Sora	|
+|	Mandarin (China)	|	cmn-CHN	|	Li-Li	|
+|	Mandarin (Taiwan)	|	cmn-TWN	|	Mei-Jia	|
+|	Norwegian	|	nor-NOR	|	Nora	|
+|	Polish	|	pol-POL	|	Ewa	|
+|	Portuguese (Brazil)	|	por-BRA	|	Luciana	|
+|	Romanian	|	ron-ROU	|	Ioana	|
+|	Russian	|	rus-RUS	|	Katya	|
+|	Slovak	|	slk-SVK	|	Laura	|
+|	Spanish (Castilian)	|	spa-ESP	|	Jorge	|
+|	Spanish (Columbia)	|	spa-COL	|	Soledad	|
+|	Spanish (Columbia)	|	spa-COL	|	Carlos	|
+|	Spanish (Mexico)	|	spa-MEX	|	Angelica	|
+|	Spanish (Mexico)	|	spa-MEX	|	Paulina	|
+|	Spanish (Mexico)	|	spa-MEX	|	Juan	|
+|	Swedish	|	swe-SWE	|	Alva	|
+|	Thai	|	tha-THA	|	Kanya	|
+|	Turkish	|	tur-TUR	|	Cem	|
+|	Valencian	|	spa-ESP	|	Empar	|
+
 
 
 <h3 id="8">8.在线AI支持的语言列表</h3>
