@@ -230,7 +230,7 @@ VUIApi.getInstance().init(context, initParam,initListener);
         VUIApi.getInstance().setSpeaker("Li-Li");
         ~~~
 
-<h3 id="3">错误对应码</h3>
+<h3 id="3">3.错误对应码</h3>
 
 | 错误码 | 备注 |
 | ------------- |:-------------:|
@@ -285,14 +285,14 @@ VUIApi.getInstance().init(context, initParam,initListener);
 23301 | 在上传wifi列表获取位置时 服务端返回的http | body大小超出了8K的限制
 23401 | 在上传wifi列表获取位置时 在构造请求时，由于内存不足申请内存失败
 
-<h3 id="5">支持的语言列表</h3>
+<h3 id="4">4.支持的语言列表</h3>
 
 | 语言码| 备注 |
 | ------------- |:-------------:|
 |cmn-CHN |中文 |
 | en-US | 英文 |
 
-<h3 id="4">发音人</h3>
+<h3 id="5">5.发音人</h3>
 
 | 语言码| 备注 |
 | ------------- |:-------------:|
