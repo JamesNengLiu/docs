@@ -413,7 +413,6 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 | 语言 | 语言对应的code | 发音人 |
 | ------------- |:-------------:|
-|	Language	|	6 char *	|	Voice	|
 |	Arabic	|	ara-XWW	|	Laila	|
 |	Bahasa (Indonesia)	|	ind-IDN	|	Damayanti	|
 |	Basque	|	baq-ESP	|	Miren	|
