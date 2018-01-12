@@ -411,7 +411,7 @@ VUIApi.getInstance().init(context, initParam,initListener);
 
 <h3 id="7">7.离线发音人列表</h3>
 
-| 语言| 语言对应的code| 发音人 |
+| 语言 | 语言对应的code | 发音人 |
 | ------------- |:-------------:|
 |	Language	|	6 char *	|	Voice	|
 |	Arabic	|	ara-XWW	|	Laila	|
