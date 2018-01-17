@@ -3,6 +3,11 @@ VoiceService-SDK 开发指南v1.0.0
 
 ### 目录
 
+<<<<<<< HEAD
+### 目录
+
+=======
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
 [1.概述](#概述)
 
 [2.使用说明](#使用说明)
@@ -13,7 +18,11 @@ VoiceService-SDK 开发指南v1.0.0
 [3.错误码对应表](#错误码对应表)
 
 ### 概述
+<<<<<<< HEAD
 VoiceService-SDK运行在Android平台的SDK，旨在为用户提供在线的语音听写、语义分析及语音合成的能力，目前支持语言中文和英文。
+=======
+VoiceService-SDK运行在Android平台的SDK，旨在为用户提供在线的语音听写、语义分析及语音合成的能力，目前支持语言中文和英文。详细的接口说明可参考[接口文档](http://htmlpreview.github.com/?https://github.com/roobo/docs/blob/master/VoiceService-SDK/javadoc/index.html)
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
 
 ### 使用说明
 #### 准备
@@ -27,17 +36,30 @@ SDK主要流程如下：
 #### 使用步骤
 1. 配置编译环境，将SDK的aar文件放入业务Module的libs文件夹下，并且配置编译选项
 ``` java
+<<<<<<< HEAD
     repositories {
+=======
+    repositories {
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
         flatDir { dirs 'libs' }
     }
     dependencies {
         compile(name:'voicesdk-release-1.0.2-test',ext:'aar')
+<<<<<<< HEAD
     }
 ```
 2. 初始化
 ``` java
     UserInfo userInfo = createUserInfo();
     Authentification.getInstance().login(userInfo, new LoginResultListener() {
+=======
+    }
+```
+2. 初始化
+``` java
+    UserInfo userInfo = createUserInfo();
+    Authentification.getInstance().login(userInfo, new LoginResultListener() {
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
             @Override
             public void onSucess() {
             }
@@ -65,12 +87,20 @@ SDK主要流程如下：
         userInfo.setAgentToken("yourAgentToken");
         userInfo.setProduction("yourProduction");
         return userInfo;
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
 ```
 3. 在线识别、语义
 初始化成功后可以使用在线识别和语义，用户需要将Recorder的数据通过SDK的write接口送给SDK，例如：
 ``` java
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
     AudioRecord record = new AudioRecord(MediaRecorder.AudioSource.MIC, 16000,
         AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, bufferSize);
     byte[] buffer = new byte[bufferSize];
@@ -83,8 +113,14 @@ SDK主要流程如下：
                 mRooboRecognizer.writeVoiceData(buffer, len);
             }
         }
+<<<<<<< HEAD
     }
 ```
+=======
+    }
+```
+如果你想开启录音后，在用户说话时自动进行识别，我们提供了带静音检测的Recognizer，详细请参考[RooboVADRecognizer](http://htmlpreview.github.com/?https://github.com/roobo/docs/blob/master/VoiceService-SDK/javadoc/com/roobo/toolkit/recognizer/RooboVADRecognizer.html)
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
 >NOTE:有些语义信息需要默认位置信息，例如：今天天气，现在几点了。请使用RooboRecognizer的reportLocationInfo(List<RooboWifiInfo> wifiInfos)方法上传位置信息。
 4. 在线TTS
 初始化成功后可以使用在线TTS，只需要将需要转换为TTS的文本数据送给SDK的TTS接口即可返回对应的TTS数据url。
@@ -141,4 +177,8 @@ error code | error des
 23201 | 在上传wifi列表获取位置时 URL解析失败，URL在目前的封装下都是写在so内部，此错误不应该出现
 23301 | 在上传wifi列表获取位置时 服务端返回的http | body大小超出了8K的限制
 23401 | 在上传wifi列表获取位置时 在构造请求时，由于内存不足申请内存失败
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 7bc99b1e8570716caa03d1a541f7f34ff32b472a
